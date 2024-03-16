@@ -1,6 +1,11 @@
-# elderly_assessment_tool
+# elderly assessment web application
 
 Badges: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Fedmichard/elderly_assessment_tool/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Fedmichard/elderly_assessment_tool)
+
+## About
+Assessment tools for elderly population. Our app will be specifically designed towards old people and will be focused on making their experience using technologies safer.
+
+##
 
 ## Contributors
 <!-- readme: contributors -start -->
