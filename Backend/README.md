@@ -1,0 +1,1 @@
+Backend expects requests to be sent with ajax. I've finished the backend with mySQL and included the database.sql file

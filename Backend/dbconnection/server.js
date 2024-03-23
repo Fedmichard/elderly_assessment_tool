@@ -1,9 +1,10 @@
-require('dotenv').config();
-const { Pool } = require('pg');
+const mysql = require('mysql2');
 
-export const conn = new Pool({
-    host: POSTGRES_HOST,
-    database: POSTGRES_DB,
-    user: POSTGRES_USER,
-    password: POSTGRES_PASSWORD
+const conn = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'elderly_assessment_tool'
 });
+
+module.exports = conn;
