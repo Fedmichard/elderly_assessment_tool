@@ -54,11 +54,11 @@ function SignIn() {
                     </div>
 
                     <div className='d-grid'>
-                        <button className='btn btn-primary'>Sign In</button>
+                        <button className='btn btn-success'>Sign In</button>
                     </div>
 
                     <p className='text-end mt-2'>
-                        Forgot Password?<Link to="/register" className='ms-2'>Register </Link>
+                        Forgot Password? <Link to="/register" style={{ color: 'green' }} className='ms-2'>Register </Link>
                     </p>
 
                 </form>

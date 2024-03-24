@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+{/*import React, { useState } from 'react'*/}
 
 function NavBar() {
 
@@ -30,7 +30,7 @@ function NavBar() {
 
         <div>
           <a className="nav-link" href="/signIn">
-            <button className="btn btn-outline-primary" type="button">Sign In</button>
+            <button className="btn btn-outline-success" type="button">Sign In</button>
           </a>
         </div>
         <div>

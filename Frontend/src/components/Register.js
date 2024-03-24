@@ -31,7 +31,7 @@ const handleSubmit = async (e) => {
     const address = `${formData.streetAddress}, ${formData.city}, ${formData.state}`;
 
     try {
-        const response = await axios.post('http://localhost:3001/registration', {
+        const response = await axios.post('http://localhost:3000/registration', {
             ...formData,
             address: address,
         });
@@ -83,11 +83,11 @@ const handleSubmit = async (e) => {
                     </div>
 
                     <div className='d-grid mt-2'>
-                        <button className='btn btn-primary' type='submit'>Register</button>
+                        <button className='btn btn-success' type='submit'>Register</button>
                     </div>  
 
                     <p className='text-end mt-2'>
-                        Already Registered?<Link to="/login" className='ms-2'>Login </Link>
+                        Already Registered?<Link to="/login" style={{ color: 'green' }} className='ms-2'>Login </Link>
                     </p>
                 </form>
             </div>
