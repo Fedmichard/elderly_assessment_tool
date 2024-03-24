@@ -36,15 +36,8 @@ Our app will be structured around the actual assessment and information providin
         <a href="https://github.com/ElfYet">
             <img src="https://avatars.githubusercontent.com/u/161971347?v=4" width="100;" alt="ElfYet"/>
             <br />
-            <sub><b>Null</b></sub>
-        </a>
-    </td></tr>
-        <td align="center">
-        <a href="https://github.com/ElfYet">
-            <img src="https://avatars.githubusercontent.com/u/161971347?v=4" width="100;" alt="ElfYet"/>
-            <br />
             <sub><b>Vladimir Ovsyannikov</b></sub>
         </a>
-    </td>
+    </td></tr>
 </table>
 <!-- readme: contributors -end -->
