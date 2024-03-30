@@ -12,9 +12,6 @@ function Register() {
         last_name: '',
         email: '',
         password: ' ',
-        streetAddress: '',
-        city: '',
-        state: '',
     });
 
 const handleChange = (e) => {
@@ -71,23 +68,12 @@ const handleSubmit = async (e) => {
 
                     <PasswordAndConfirmPasswordValidation />
 
-                    <div className='mb-2'>
-                        <label htmlFor="streetAddress">Street Address</label>
-                        <input type="text" value={formData.streetAddress} onChange={handleChange} id="streetAddress" name="streetAddress" placeholder='Enter Street Address' className='form-control' required/><br/>
-
-                        <label htmlFor="city">City</label>
-                        <input type="text" value={formData.city} onChange={handleChange} id="city" name="city" placeholder='Enter City' className='form-control' required/><br/>
-
-                        <label htmlFor="state">State/Provinence</label>
-                        <input type="text" value={formData.state} onChange={handleChange} id="state" name="state" placeholder='Enter State' className='form-control' required/><br/>
-                    </div>
-
                     <div className='d-grid mt-2'>
                         <button className='btn btn-success' type='submit'>Register</button>
                     </div>  
 
                     <p className='text-end mt-2'>
-                        Already Registered?<Link to="/login" style={{ color: 'green' }} className='ms-2'>Login </Link>
+                        Already Registered?<Link to="/login" style={{ color: 'green' }} className='ms-2'> Login </Link>
                     </p>
                 </form>
             </div>

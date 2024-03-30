@@ -3,7 +3,7 @@
 function NavBar() {
 
   return (
-    <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar navbar-light " style={{paddingLeft: 110}}>
       <a className="navbar-brand" href="/">Elderly Assessment Tool</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -11,14 +11,21 @@ function NavBar() {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home</a>
+
+          <li className="nav-item">
+            <a className="nav-link" href="/aboutPhishing">About Phishing Scams</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/about">About</a>
+            <a className="nav-link" href="/aboutPhones">About Phone Scams</a>
           </li>
-          <li className="nav-item dropdown">
+          <li className="nav-item">
+            <a className="nav-link" href="/phishingAsessment">Phishing Scam Assessment</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/phoneAssessment">Phone Scam Assessment</a>
+          </li>
 
+          <li className="nav-item dropdown">
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <a className="dropdown-item" href="/about">About</a>
               <a className="dropdown-item" href="/signIn">Login</a>
@@ -26,16 +33,17 @@ function NavBar() {
               <a className="dropdown-item" href="/register">Register</a>
             </div>
           </li>
+
         </ul>
 
         <div>
           <a className="nav-link" href="/signIn">
-            <button className="btn btn-outline-success" type="button">Sign In</button>
+            <button className="btn btn-outline-dark rounded-0" type="button">Sign In</button>
           </a>
         </div>
-        <div>
+        <div style={{paddingRight: 80}}>
           <a className="nav-link" href="/register">
-            <button className="btn btn-sm btn-outline-secondary" type="button">Register</button>
+            <button className="btn btn-sm btn-outline-dark rounded-0" type="button">Register</button>
           </a>
         </div>
       </div>

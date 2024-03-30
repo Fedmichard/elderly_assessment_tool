@@ -2,71 +2,163 @@ import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
+
 function HomePage() {
       return (
-        <div className='bg bg-light' style={{backgroundImage: `require(${'../assets/RandomImage01'})`}}>
-            <div className='text-center'>
-                <h1 className='mt-2 text-uppercase fw-bolder'>Elderly Assessment Tool</h1>
-                <h2 className='text-uppercase fw-bold'>*Insert*</h2>
-                <Link to='/registration'>
-                    <button className='btn btn-success mt-4'>*Insert*</button>
-                </Link>
-            </div><br />
+        <div className='bg bg-white' style={{backgroundImage: `require(${'../assets/RandomImage01'})`}}>
+            
             <br />
-            <div>
-                <h3 className='text-center text-uppercase fw-bold'>benefits that you can enjoy:</h3>
-                <div className='container'>
-                    <div className='row fs-5'>
-                        <div className='px-5 col-md-6 mt-3'>
-                            <ul>
-                            <li><strong>*Insert* </strong>*Insert*</li>
-                            <li><strong>*Insert* </strong>*Insert*</li>
-                            <li><strong>*Insert* </strong>*Insert*</li>
-                            </ul>
-                        </div>
+            <br />
+            <br />
+            <br />
 
-                        <div className='px-5 col-md-6 mt-3'>
-                            <ul>
-                            <li>*Insert* <strong>*Insert*</strong></li>
-                            <li>*Insert* <strong>*Insert*</strong> *Insert*</li>
-                            <li>*Insert* <strong>*Insert*</strong> *Insert*</li>
-                            </ul>
-                        </div>
-                    </div><br />
-                    </div>
-                </div>
-
-
-            <div><h3 className='px-5 text-uppercase text-center fw-bold'>how the assesment tool works... </h3></div>
-            <div className='px-5 container'>
+            <div className='container-fluid' style={{flex: 3}}>
                 <div className='row'>
-                    <div className='col-md-4 mt-4 border rounded border-success'>
-                    <h5 className='text-uppercase text-center fw-bold'>step 1: *Insert*</h5><hr className='d-md-none' />
-                    {/*<div className='px-5'><img src={require('../assets/Reservation01.jpeg')} alt='*Insert*' className='img-fluid mt-2'></img></div>*/}
-                    <p className='mt-2 fs-6'>*Insert* </p>
+
+                    <div className='col' style={{paddingLeft: 100}} align='left'>
+                        <h1 className='col mt-6 fw-bolder' style={{fontSize: 70}}>Cyber Security Assessment Tool</h1>
+                    </div>
+                    <div className='col' style={{paddingRight: 100}}>
+                        <h5 style={{fontSize: 25}}>Learn about common cyber attacks, how to spot them, and how to protect yourself and your information.</h5>
+                        <br />
+                        <Link to='/about'>
+                            <button className='btn btn-dark rounded-0 mt-4' style={{fontSize: 25}}>Learn more</button>
+                        </Link>
                     </div>
 
-                    <div className='col-md-4 mt-4 border rounded border-success'>
-                    <h5 className='text-uppercase text-center fw-bold'>step 2: *Insert*</h5><hr className='d-md-none' />
-                    {/*<div className='px-5'><img src={require('../assets/Boat04.jpeg')} alt='*Insert*' className='img-fluid mt-2'></img></div>*/}
-                    <p className='mt-2 fs-6'>*Insert*</p>
-                    </div>
-
-                    <div className='col-md-4 mt-4 border rounded border-success'>
-                    <h5 className='text-uppercase text-center fw-bold'>step 3: *Insert*</h5><hr className='d-md-none' />
-                    {/*<div className='px-5'><img src={require('../assets/Boat05.jpeg')} alt='*Insert*' className='img-fluid mt-2'></img></div>*/}
-                    <p className='mt-2 fs-6'>*Insert*</p>
-                    </div>
                 </div>
-            </div><br />
-
-            <div><h3 className='px-5 text-uppercase text-center fw-bold'>*Insert*</h3></div>
-            <div><h3 className='px-5 text-uppercase text-center mt-3'>*Insert*</h3></div>
-            <div className='text-center mb-5'>
-            <Link to='/registration'>
-                <button className='btn btn-success mt-3'>Register</button>
-            </Link>
             </div>
+        
+            <br />
+            <br />
+
+            <div className='container-fluid'>
+                <div>
+                    <img src={require('../assets/oldPeople.png')} alt='Responsive image' className='img-fluid mt-2'
+                    style={{paddingRight: 100, paddingLeft: 100, paddingTop: 20}} />
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div className='container-fluid'>
+                <div className='row'>
+
+                    <div className='col' style={{paddingLeft: 100}}>
+                        <h5 style={{paddingLeft: 15}}>Feature One</h5>
+                        <h1 className='col mt-6 fw-bolder' style={{fontSize: 80}}>Learn About Common Scams</h1>
+                        <h5 style={{paddingLeft: 15, paddingTop: 20}}>Take an opportunity to learn about common methods cybercriminals
+                        use to steal information from you and methods to spot and protect yourself.</h5>
+
+                        <br />
+                        <br />
+                        <br />
+
+                        <div className='row' style={{paddingLeft: 15}}>
+                            <div className='col'>
+                                <img src={require('../assets/73674.png')} alt='Responsive image' className='img-fluid mt-2' style={{width: 50, height: 50}}/>
+                                <br />
+                                <br />
+                                <h3>Phishing Scams</h3>
+                                <h5>A common type of attack in which the attacker attempts to trick you into giving up sensitive information.</h5>
+                                <br />
+                                <br />
+                                <Link to='/aboutPhishing'>
+                                    <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Learn more</button>
+                                </Link>
+                            </div>
+
+                            <div className='col'>
+                                <img src={require('../assets/73674.png')} alt='Responsive image' className='img-fluid mt-2' style={{width: 50, height: 50}}/>
+                                <br />
+                                <br />
+                                <h3>Phone Scams</h3>
+                                <h5>A common scam in which unsolicited calls are sent out in order to trick you into giving up information</h5>
+                                <br />
+                                <br />
+                                <Link to='/aboutPhones'>
+                                    <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Learn more</button>
+                                </Link>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+            
+                    <div className='col'>
+                        <div>
+                            <img src={require('../assets/cellphone-scam.jpg')} alt='Responsive image' className='img-fluid mt-2'
+                            style={{paddingLeft: 130}} />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+            <div className='container-fluid'>
+                <div className='row'>
+
+                    <div className='col' style={{paddingLeft: 100}}>
+                        <h5 style={{paddingLeft: 15}}>Feature two</h5>
+                        <h1 className='col mt-6 fw-bolder' style={{fontSize: 80}}>Take an Assessment to Test Your Knowledge</h1>
+                        <h5 style={{paddingLeft: 15, paddingTop: 20}}>Test your knowledge on phishing and phone scams with two dedicated assessments.</h5>
+
+                        <br />
+                        <br />
+                        <br />
+
+                        <div className='row' style={{paddingLeft: 15}}>
+                            <div className='col'>
+                                <img src={require('../assets/73674.png')} alt='Responsive image' className='img-fluid mt-2' style={{width: 50, height: 50}}/>
+                                <br />
+                                <br />
+                                <h3>Phishing Assessment</h3>
+                                <h5>Take the Phishing Assessment Below.</h5>
+                                <br />
+                                <br />
+                                <Link to='/phishingAssessment'>
+                                    <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Phishing Assessment</button>
+                                </Link>
+                            </div>
+
+                            <div className='col'>
+                                <img src={require('../assets/73674.png')} alt='Responsive image' className='img-fluid mt-2' style={{width: 50, height: 50}}/>
+                                <br />
+                                <br />
+                                <h3>Phone Assessment</h3>
+                                <h5>Take the Phone Scam Assessment Below.</h5>
+                                <br />
+                                <br />
+                                <Link to='/phoneAssessment'>
+                                    <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Phone Scam Assessment</button>
+                                </Link>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+            
+                    <div className='col'>
+                        <div>
+                            <img src={require('../assets/oldmantest.jpg')} alt='Responsive image' className='img-fluid mt-2'
+                            style={{paddingLeft: 130}} />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
         </div>
     );
 };

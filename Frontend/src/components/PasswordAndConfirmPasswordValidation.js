@@ -75,20 +75,18 @@ if(passwordInputFieldName==='password'){
 }
 
     return(
-    <div className="row">
-     <div className="mb-2">
+    <div className="mb-2">
         <PasswordInputField 
-        handlePasswordChange={handlePasswordChange} 
-        handleValidation={handleValidation} 
-        passwordValue={passwordInput.password} 
-        passwordError={passwordError}/>
+            handlePasswordChange={handlePasswordChange} 
+            handleValidation={handleValidation} 
+            passwordValue={passwordInput.password} 
+            passwordError={passwordError}/>
         <ConfirmPasswordInputField 
-        handlePasswordChange={handlePasswordChange} 
-        handleValidation={handleValidation} 
-        confirmPasswordValue={passwordInput.confirmPassword} 
-        confirmPasswordError={confirmPasswordError}/>
+            handlePasswordChange={handlePasswordChange} 
+            handleValidation={handleValidation} 
+            confirmPasswordValue={passwordInput.confirmPassword} 
+            confirmPasswordError={confirmPasswordError}/>
      </div>
-    </div>
     )
 }
 
