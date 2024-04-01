@@ -38,42 +38,6 @@ Our app will be structured around the actual assessment and information providin
             <br />
             <sub><b>Vladimir Ovsyannikov</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Alex-Mur25">
-            <img src="https://avatars.githubusercontent.com/u/162273500?v=4" width="100;" alt="Alex-Mur25"/>
-            <br />
-            <sub><b>Alex Murillo</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/arnulfov">
-            <img src="https://avatars.githubusercontent.com/u/128873679?v=4" width="100;" alt="arnulfov"/>
-            <br />
-            <sub><b>Arnulfo Villicana</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/LuxSaar">
-            <img src="https://avatars.githubusercontent.com/u/119269558?v=4" width="100;" alt="LuxSaar"/>
-            <br />
-            <sub><b>Lucas Eusebio Veras?</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Esala-Logan">
-            <img src="https://avatars.githubusercontent.com/u/101841905?v=4" width="100;" alt="Esala-Logan"/>
-            <br />
-            <sub><b>Logan Esala</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/LanguageCodem">
-            <img src="https://avatars.githubusercontent.com/u/100384602?v=4" width="100;" alt="LanguageCodem"/>
-            <br />
-            <sub><b>Markendy Pierre</b></sub>
-        </a>
-    </td>
-</tr>
+    </td></tr>
 </table>
 <!-- readme: contributors -end -->
