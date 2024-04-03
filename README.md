@@ -6,7 +6,24 @@ Badges: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github
 ## About
 Our app will be structured around the actual assessment and information providing aspects. Our assessment will show things like examples of safe vs. unsafe websites/emails/messages and then provide a series of questions which will ask the user if the image above looks misleading or dangerous.
 
-## Features
+## Languages & Tools
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+
+## Front-end
+Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on making the app as responsive as possible for future screen sizes, making it compatible for mobile devices.
+The current UI/UX design was created within Figma and below are some pictures of our front-end implementing those designs:
+// pictures
+
+## Back-end
+Our backend has been established already in MySQL and is ready for communication with our front-end, below is a rudimentary schema created by our back-end for our database:
+// picture
+
+## Security
+-- To be completed
+
+##
+
+## Upcoming Features
 * Provide an assessment tool which will give a detailed report of how the user responds to Phishing attempts, how the user responds to non-Phishing attempts, how the user interacts with the visuals of a site, and things missed or not missed in the examples
 * Provide a well thought out tutorial with examples and customization
 * Provide resources from trusted outlets to enhance the learning of the user such as common threats and how to mitigate them
