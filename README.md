@@ -4,18 +4,16 @@ Assessment tools for elderly population. Our app will be specifically designed t
 Badges: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Fedmichard/elderly_assessment_tool/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Fedmichard/elderly_assessment_tool)
 
 ## About
-Our app will be structured around the actual assessment and information providing aspects. Our assessment will show things like examples of safe vs. unsafe websites/emails/messages and then provide a series of questions which will ask the user if the image above looks misleading or dangerous.
+Our app will be structured around the actual assessment and information providing aspects. Our assessment will show things like examples of safe vs. unsafe websites/emails/messages and then provide a series of questions which will ask the user if the image above looks misleading or dangerous. Of all users, elderly folk make up such a large majority of the individuals who are affected by phishing and phone scams. These happen so often and most of the time they are completely oblivious to these attacks taking place, our website aims to minimize the amount they are affected.
 
 ## Languages & Tools
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactbootstrap/reactbootstrap-original.svg" />
-<img align="left" alt="java" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactbootstrap/reactbootstrap-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
 <br />
-
-#
 
 ## Front-end
 Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on making the app as responsive as possible for future screen sizes, making it compatible for mobile devices.
