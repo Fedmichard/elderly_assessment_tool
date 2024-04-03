@@ -22,7 +22,7 @@ The current UI/UX design was created within Figma and below are some pictures of
 
 ## Back-end
 Our backend has been established already in MySQL and is ready for communication with our front-end, below is a rudimentary schema created by our back-end for our database:
-// picture
+![Screenshot_2024-03-15_013912](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/df75f48e-c4ac-474c-815a-8cba396adfcf)
 
 ## Security
 -- To be completed
