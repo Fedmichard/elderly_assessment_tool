@@ -16,7 +16,7 @@ Our app will be structured around the actual assessment and information providin
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
 
 <br />
-
+<br />
 ## Front-end
 Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on making the app as responsive as possible for future screen sizes, making it compatible for mobile devices.
 The current UI/UX design was created within Figma and below are some pictures of our front-end implementing those designs:
