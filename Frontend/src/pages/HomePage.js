@@ -121,11 +121,9 @@ function HomePage() {
                                 <h5 className='mb-3'>Take the Phishing Scam Assessment Below.</h5>
                                 <br />
                                 <br />
-                                <div className='container' style={{margin: 0, padding: 0}}>
-                                    <Link to='/phishingAssessment'>
-                                        <button className='btn btn-outline-dark rounded-0 align-self-end' style={{fontSize: 25}}>Phishing Assessment</button>
-                                    </Link>
-                                </div>
+                                <Link to='/phishingAssessment'>
+                                    <button className='btn btn-outline-dark rounded-0 align-self-end' style={{fontSize: 25}}>Phishing Assessment</button>
+                                </Link>
                             </div>
 
                             <div className='col-md-6 flex-column'>
@@ -136,11 +134,9 @@ function HomePage() {
                                 <h5 className='mb-3'>Take the Phone Scam Assessment Below.</h5>
                                 <br />
                                 <br />
-                                <div className='align-self-end mb-auto' style={{margin: 0, padding: 0}}>
-                                    <Link to='/phoneAssessment'>
-                                        <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Phone Scam Assessment</button>
-                                    </Link>
-                                </div>
+                                <Link to='/phoneAssessment'>
+                                    <button className='btn btn-outline-dark rounded-0' style={{fontSize: 25}}>Phone Scam Assessment</button>
+                                </Link>
                             </div>
                         </div>
 
