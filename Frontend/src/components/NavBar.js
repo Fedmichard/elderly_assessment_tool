@@ -3,8 +3,8 @@
 function NavBar() {
 
   return (
-    <nav className="navbar navbar-expand-lg navbar navbar-light " style={{paddingLeft: 110}}>
-      <a className="navbar-brand" href="/">Elderly Assessment Tool</a>
+    <nav className="navbar navbar-expand-lg navbar navbar-light pl-4">
+      <a className="navbar-brand pl-5" href="/">Elderly Assessment Tool</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -19,7 +19,7 @@ function NavBar() {
             <a className="nav-link" href="/aboutPhones">About Phone Scams</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/phishingAsessment">Phishing Scam Assessment</a>
+            <a className="nav-link" href="/phishingAssessment">Phishing Scam Assessment</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/phoneAssessment">Phone Scam Assessment</a>
@@ -41,8 +41,8 @@ function NavBar() {
             <button className="btn btn-outline-dark rounded-0" type="button">Sign In</button>
           </a>
         </div>
-        <div style={{paddingRight: 80}}>
-          <a className="nav-link" href="/register">
+        <div className="pr-2">
+          <a className="nav-link pr-5" href="/register">
             <button className="btn btn-sm btn-outline-dark rounded-0" type="button">Register</button>
           </a>
         </div>

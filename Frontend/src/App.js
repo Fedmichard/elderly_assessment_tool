@@ -28,7 +28,7 @@ class App extends Component {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/aboutPhishing" element={<AboutPhishingScams />} />
           <Route path="/aboutPhones" element={<AboutPhoneScams />} />
-          <Route path="/phishingAsessment" element={<PhishingAssessment />} />
+          <Route path="/phishingAssessment" element={<PhishingAssessment />} />
           <Route path="/phoneAssessment" element={<PhoneAssessment />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signIn" element={<SignInPage />} />
