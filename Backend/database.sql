@@ -132,14 +132,12 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `idusers` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
+   `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL, 
   `password` varchar(45) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `phone_number` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idusers`),
   UNIQUE KEY `idusers_UNIQUE` (`idusers`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -149,7 +147,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','admin',NULL,NULL);
+INSERT INTO `users` VALUES (1,'admin','admin','admin','admin@admin.com','admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
