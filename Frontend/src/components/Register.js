@@ -7,19 +7,18 @@ import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
 function Register() {
     const navigate = useNavigate(); // Hook for navigation
     
-        const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
         email: '',
         password: ' ',
     });
 
-const handleChange = (e) => {
-    setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-    });
-};
+    const handleChange = (e) => 
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +72,7 @@ const handleSubmit = async (e) => {
                     </div>  
 
                     <p className='text-end mt-2'>
-                        Already Registered?<Link to="/login" style={{ color: 'green' }} className='ms-2'> Login </Link>
+                        Already Registered?<Link to="/signIn" style={{ color: 'green' }} className='ms-2'> Login </Link>
                     </p>
                 </form>
             </div>
