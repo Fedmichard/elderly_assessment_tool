@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongodb = require('mongodb');
+const mongoClient = require('mongodb').MongoClient;
+const url = 'mongodb+srv://victormoralesblanco147:rEuxQjkEiIxeqR3T@assesmenttool.fe9ju9q.mongodb.net/';
 
 var indexRouter = require('./routes/index');
 var resourcesRouter = require('./routes/resources');
@@ -14,12 +17,12 @@ var answersRouter = require('./routes/answers');
 
 var app = express();
 
-global.conn = require('./dbConnection/server');
+// global.conn = require('./dbConnection/server');
 
-conn.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to Database');
-});
+// conn.connect((err) => {
+//     if (err) throw err;
+//     console.log('Connected to Database');
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

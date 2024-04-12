@@ -2,18 +2,28 @@ var express = require('express');
 var router = express.Router();
 
 // pulls information on user if username and password match input
-router.get('/login', function (req,res){
-    let form =req.body;
-    let cmd = 'SELECT * WHERE username = ? AND password = ?'
+router.get('/login', function (req, res) {
+    let form = req.body;
+    let cmd = 'SELECT * WHERE username = ? AND password = ?';
+    conn.query(cmd, (err, data) => {
+        if (err) throw err;
+        res.writeHead(200, { "Content-Type": "json" });
+        res.write(JSON.stringify(data));
+        res.end();
+    });
 })
 
 // creates user
-router.post('/create_user', function (req,res){
+router.post('/create_user', function (req, res) {
     let form = req.body;
-    let cmd = 'INSERT INTO users Set ?'
-    conn.query(cmd, form, err => {
+    mongoClient.connect(url, { useUnifiedTopology: true }, (err, db) => {
         if (err) throw err;
-        res.end();
+        let dbo = db.db('AssessmentTool');
+        dbo.collection('users').insertOne(form, (err, result) => {
+            if (err) throw err;
+            db.close();
+            res.end();
+        });
     });
 });
 

@@ -24,12 +24,12 @@ const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Combine streetAddress, city, and state into a single address
-    const address = `${formData.streetAddress}, ${formData.city}, ${formData.state}`;
+    //const address = `${formData.streetAddress}, ${formData.city}, ${formData.state}`;
 
     try {
-        const response = await axios.post('http://localhost:3000/registration', {
+        const response = await axios.post('/users/create_user', {
             ...formData,
-            address: address,
+           
         });
 
         console.log('Server response:', response.data);
