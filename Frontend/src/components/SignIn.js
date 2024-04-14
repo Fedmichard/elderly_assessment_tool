@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Alert from 'react-bootstrap/Alert';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
 
@@ -25,13 +24,12 @@ function SignIn() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/signIn', {
-                ...formData,
-            });
+            const response = await axios.post('http://localhost:3001/users/sign_in', formData);
             console.log('Login response:', response.data);
 
             // If login is success, redirect to account page
-            navigate('/account');
+            navigate('/');
+            
         } catch (error) {
             console.error('Error during login:', error);
         }

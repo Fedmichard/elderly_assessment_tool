@@ -11,10 +11,10 @@ function Register() {
         first_name: '',
         last_name: '',
         email: '',
-        password: ' ',
+        password: '',
     });
 
-    const handleChange = (e) => 
+    const handleChange = async (e) => 
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -23,22 +23,20 @@ function Register() {
 const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Combine streetAddress, city, and state into a single address
-    const address = `${formData.streetAddress}, ${formData.city}, ${formData.state}`;
-
     try {
-        const response = await axios.post('http://localhost:3000/registration', {
-            ...formData,
-            address: address,
-        });
+        console.log(formData);
+        const response = await axios.post('http://localhost:3001/users/create_user', formData)
 
         console.log('Server response:', response.data);
 
         // If registration is success, redirect to account page
-        navigate('/account');
+        navigate('/');
+
     } catch (error) {
         console.error('Error submitting registration:', error);
+
     }
+    
 };
 
     return (
@@ -47,6 +45,8 @@ const handleSubmit = async (e) => {
                 <div className='text-center fw-bolder'>
                     <h1><strong>Join our Elderly Assessment Tool</strong></h1>
                 </div>
+
+
                 <form onSubmit={handleSubmit}>
                     <h3 className='text-center fw-bold'>Register</h3>
 
@@ -75,6 +75,8 @@ const handleSubmit = async (e) => {
                         Already Registered?<Link to="/signIn" style={{ color: 'green' }} className='ms-2'> Login </Link>
                     </p>
                 </form>
+
+
             </div>
         </div>
     );

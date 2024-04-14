@@ -1,19 +1,44 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt')
 
 // pulls information on user if username and password match input
-router.get('/login', function (req,res){
-    let form =req.body;
-    let cmd = 'SELECT * WHERE username = ? AND password = ?'
+router.get('/sign_in', function (req, res){
+    let cmd = 'SELECT * FROM `users` WHERE username = ? AND password = ?'
+    const values = [
+        req.body.email,
+        req.body.password
+    ]
+
+    conn.query(cmd, [values], (err, results) => {
+        if (err) {
+            throw err;
+        } if (results.length > 0) {
+            res.send(results)
+        } else {
+            return res.json({Status: "Credentials Don't Match."})
+        }
+    })
 })
 
 // creates user
-router.post('/create_user', function (req,res){
-    let form = req.body;
-    let cmd = 'INSERT INTO users Set ?'
-    conn.query(cmd, form, err => {
-        if (err) throw err;
-        res.end();
+router.post('/create_user', (req, res) => {
+    // our entered form values from the register directory
+    const cmd = 'INSERT INTO `users` (`password`, `first_name`, `last_name`, `email`) VALUES (?)';
+    const values = [
+        req.body.password,
+        req.body.first_name,
+        req.body.last_name,
+        req.body.email
+    ]
+
+    console.log(req.body);
+    conn.query(cmd, [values], (err, results) => {
+        if (err) {
+            throw err;
+        } else {
+            return res.json({Status: "Success"})
+        }
     });
 });
 
