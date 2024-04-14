@@ -3,42 +3,28 @@ const router = express.Router();
 const bcrypt = require('bcrypt')
 
 // pulls information on user if username and password match input
-router.get('/sign_in', function (req, res){
-    let cmd = 'SELECT * FROM `users` WHERE username = ? AND password = ?'
-    const values = [
-        req.body.email,
-        req.body.password
-    ]
-
-    conn.query(cmd, [values], (err, results) => {
-        if (err) {
-            throw err;
-        } if (results.length > 0) {
-            res.send(results)
-        } else {
-            return res.json({Status: "Credentials Don't Match."})
-        }
-    })
+router.get('/login', function (req, res) {
+    let form = req.body;
+    let cmd = 'SELECT * WHERE username = ? AND password = ?';
+    conn.query(cmd, (err, data) => {
+        if (err) throw err;
+        res.writeHead(200, { "Content-Type": "json" });
+        res.write(JSON.stringify(data));
+        res.end();
+    });
 })
 
 // creates user
-router.post('/create_user', (req, res) => {
-    // our entered form values from the register directory
-    const cmd = 'INSERT INTO `users` (`password`, `first_name`, `last_name`, `email`) VALUES (?)';
-    const values = [
-        req.body.password,
-        req.body.first_name,
-        req.body.last_name,
-        req.body.email
-    ]
-
-    console.log(req.body);
-    conn.query(cmd, [values], (err, results) => {
-        if (err) {
-            throw err;
-        } else {
-            return res.json({Status: "Success"})
-        }
+router.post('/create_user', function (req, res) {
+    let form = req.body;
+    mongoClient.connect(url, { useUnifiedTopology: true }, (err, db) => {
+        if (err) throw err;
+        let dbo = db.db('AssessmentTool');
+        dbo.collection('users').insertOne(form, (err, result) => {
+            if (err) throw err;
+            db.close();
+            res.end();
+        });
     });
 });
 

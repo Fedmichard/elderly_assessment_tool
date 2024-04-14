@@ -24,8 +24,9 @@ const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-        console.log(formData);
-        const response = await axios.post('http://localhost:3001/users/create_user', formData)
+        const response = await axios.post('/users/create_user', {
+            ...formData,
+        });
 
         console.log('Server response:', response.data);
 
