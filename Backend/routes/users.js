@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 // pulls information on user if username and password match input
 router.get('/login', function (req, res) {
     let form = req.body;
-    let cmd = 'SELECT * WHERE username = ? AND password = ?';
+    let cmd = 'SELECT * WHERE email = ? AND password = ?';
     conn.query(cmd, (err, data) => {
         if (err) throw err;
         res.writeHead(200, { "Content-Type": "json" });
