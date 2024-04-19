@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var resourcesRouter = require('./routes/resources');
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//app.use(cors());
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -46,7 +46,7 @@ app.use('/verified_scams', verified_scamsRouter);
 app.use('/answers', answersRouter);
 
 app.listen(3001, ()=> {
-    "Connected to port 3001"
+    console.log("Connected to port 3001");
 })
 
 module.exports = app;

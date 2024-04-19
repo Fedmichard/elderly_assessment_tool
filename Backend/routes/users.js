@@ -3,10 +3,10 @@ const router = express.Router();
 const bcrypt = require('bcrypt')
 
 // pulls information on user if username and password match input
-router.get('/login', function (req, res) {
+router.get('/login', (req, res) => {
     let form = req.body;
     let cmd = 'SELECT * WHERE email = ? AND password = ?';
-    conn.query(cmd, (err, data) => {
+    conn.query(cmd,[form.email,form.password], (err, data) => {
         if (err) throw err;
         res.writeHead(200, { "Content-Type": "json" });
         res.write(JSON.stringify(data));
@@ -17,7 +17,7 @@ router.get('/login', function (req, res) {
 // creates user
 router.post('/create_user', function (req, res) {
     let form = req.body;
-    
+
     let cmd = 'INSERT INTO users Set ?'
     conn.query(cmd, form, err => {
         if (err) throw err;
