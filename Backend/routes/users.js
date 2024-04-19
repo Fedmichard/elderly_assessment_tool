@@ -17,14 +17,11 @@ router.get('/login', function (req, res) {
 // creates user
 router.post('/create_user', function (req, res) {
     let form = req.body;
-    mongoClient.connect(url, { useUnifiedTopology: true }, (err, db) => {
+    
+    let cmd = 'INSERT INTO users Set ?'
+    conn.query(cmd, form, err => {
         if (err) throw err;
-        let dbo = db.db('AssessmentTool');
-        dbo.collection('users').insertOne(form, (err, result) => {
-            if (err) throw err;
-            db.close();
-            res.end();
-        });
+        res.end();
     });
 });
 

@@ -6,7 +6,7 @@ import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
 
 function Register() {
     const navigate = useNavigate(); // Hook for navigation
-    
+
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -14,31 +14,32 @@ function Register() {
         password: '',
     });
 
-    const handleChange = async (e) => 
+    const handleChange = async (e) =>
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    try {
-        const response = await axios.post('/users/create_user', {
-            ...formData,
-        });
+        try {
+            const response = await axios.post('/users/create_user', {
+                ...formData
 
-        console.log('Server response:', response.data);
+            });
 
-        // If registration is success, redirect to account page
-        navigate('/');
+            console.log('Server response:', response.data);
 
-    } catch (error) {
-        console.error('Error submitting registration:', error);
+            // If registration is success, redirect to account page
+            navigate('/');
 
-    }
-    
-};
+        } catch (error) {
+            console.error('Error submitting registration:', error);
+
+        }
+
+    };
 
     return (
         <div className="signup template d-flex justify-content-center align-items-center bg-color">
@@ -53,24 +54,24 @@ const handleSubmit = async (e) => {
 
                     <div className='mb-2'>
                         <label htmlFor="fname">First Name</label>
-                        <input type="text" value={formData.first_name} onChange={handleChange} name='first_name' placeholder='Enter First Name' className='form-control' required/>
+                        <input type="text" value={formData.first_name} onChange={handleChange} name='first_name' placeholder='Enter First Name' className='form-control' required />
                     </div>
 
                     <div className='mb-2'>
                         <label htmlFor="lname">Last Name</label>
-                        <input type="text" value={formData.last_name} onChange={handleChange} name='last_name' placeholder='Enter Last Name' className='form-control' required/>
+                        <input type="text" value={formData.last_name} onChange={handleChange} name='last_name' placeholder='Enter Last Name' className='form-control' required />
                     </div>
 
                     <div className='mb-2'>
                         <label htmlFor="email">Email Address</label>
-                        <input type="email" value={formData.email} onChange={handleChange} name='email' placeholder='Enter Email Name' className='form-control' required/>
+                        <input type="email" value={formData.email} onChange={handleChange} name='email' placeholder='Enter Email Name' className='form-control' required />
                     </div>
 
                     <PasswordAndConfirmPasswordValidation />
 
                     <div className='d-grid mt-2'>
                         <button className='btn btn-success' type='submit'>Register</button>
-                    </div>  
+                    </div>
 
                     <p className='text-end mt-2'>
                         Already Registered?<Link to="/signIn" style={{ color: 'green' }} className='ms-2'> Login </Link>
