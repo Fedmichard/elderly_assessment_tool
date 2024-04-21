@@ -17,9 +17,10 @@ router.get('/login', (req, res) => {
 // creates user
 router.post('/create_user', function (req, res) {
     let form = req.body;
+    let values = [form.password, form.first_name, form.last_name, form.email]
 
-    let cmd = 'INSERT INTO users Set ?'
-    conn.query(cmd, form, err => {
+    let cmd = 'INSERT INTO `users` (`password`, `first_name`, `last_name`, `email`) VALUES (?)'
+    conn.query(cmd, [values], err => {
         if (err) throw err;
         res.end();
     });

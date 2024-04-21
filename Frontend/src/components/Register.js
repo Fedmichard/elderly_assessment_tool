@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Install dependency
 import axios from 'axios'; // Install dependency
-import PasswordAndConfirmPasswordValidation from './PasswordAndConfirmPasswordValidation';
 import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
+
 
 function Register() {
     const navigate = useNavigate(); // Hook for navigation
@@ -12,7 +12,64 @@ function Register() {
         last_name: '',
         email: '',
         password: '',
+        confirmPassword: '',
     });
+
+    const [passwordError, setPasswordErr] = useState("");
+    const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
+    const handleValidation= (evnt)=>{
+
+        const passwordInputValue = evnt.target.value.trim();
+        const passwordInputFieldName = evnt.target.name;
+
+            //for password 
+    if(passwordInputFieldName==='password'){
+        const uppercaseRegExp   = /(?=.*?[A-Z])/;
+        const lowercaseRegExp   = /(?=.*?[a-z])/;
+        const digitsRegExp      = /(?=.*?[0-9])/;
+        const specialCharRegExp = /(?=.*?[#?!@$%^&*-])/;
+        const minLengthRegExp   = /.{8,}/;
+
+        const passwordLength =      passwordInputValue.length;
+        const uppercasePassword =   uppercaseRegExp.test(passwordInputValue);
+        const lowercasePassword =   lowercaseRegExp.test(passwordInputValue);
+        const digitsPassword =      digitsRegExp.test(passwordInputValue);
+        const specialCharPassword = specialCharRegExp.test(passwordInputValue);
+        const minLengthPassword =   minLengthRegExp.test(passwordInputValue);
+
+        let errMsg ="";
+        if(passwordLength===0){
+                errMsg="Password is empty";
+        }else if(!uppercasePassword){
+                errMsg="At least one Uppercase";
+        }else if(!lowercasePassword){
+                errMsg="At least one Lowercase";
+        }else if(!digitsPassword){
+                errMsg="At least one digit";
+        }else if(!specialCharPassword){
+                errMsg="At least one Special Characters";
+        }else if(!minLengthPassword){
+                errMsg="At least minumum 8 characters";
+        }else{
+            errMsg="";
+        }
+        setPasswordErr(errMsg);
+        }
+
+        // for confirm password
+        if(passwordInputFieldName=== "confirmPassword" || (passwordInputFieldName==="password" && formData.confirmPassword.length>0) ){
+                
+            if(formData.confirmPassword!==formData.password)
+            {
+            setConfirmPasswordError("Confirm password is not matched");
+            }else{
+            setConfirmPasswordError("");
+            }
+            
+        }
+
+    }
 
     const handleChange = async (e) =>
         setFormData({
@@ -24,7 +81,8 @@ function Register() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('/users/create_user', {
+            console.log(formData)
+            const response = await axios.post('http://localhost:3001/users/create_user', {
                 ...formData
 
             });
@@ -64,10 +122,20 @@ function Register() {
 
                     <div className='mb-2'>
                         <label htmlFor="email">Email Address</label>
-                        <input type="email" value={formData.email} onChange={handleChange} name='email' placeholder='Enter Email Name' className='form-control' required />
+                        <input type="email" value={formData.email} onChange={handleChange} name='email' placeholder='Enter Email' className='form-control' required />
                     </div>
 
-                    <PasswordAndConfirmPasswordValidation />
+                    <div className="mb-2">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" value={formData.password}  onChange={handleChange} onKeyUp={handleValidation} name="password" placeholder="Enter Password" className="form-control" />
+                            <p className="text-danger">{passwordError}</p>
+                    </div>
+
+                    <div className="mb-2">
+                        <label htmlFor="password">Confirm Password</label>
+                        <input type="password" value={formData.confirmPassword}  onChange={handleChange} onKeyUp={handleValidation} name="confirmPassword" placeholder="Re-Enter Password" className="form-control" />
+                        <p className="text-danger">{confirmPasswordError}</p>
+                    </div>
 
                     <div className='d-grid mt-2'>
                         <button className='btn btn-success' type='submit'>Register</button>
