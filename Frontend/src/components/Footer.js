@@ -42,6 +42,11 @@ const Footer = () => (
                     </a>
                 </div>
 
+                <div className='col'>
+                    <a className='btn btn-floating m-1' href='/resourcesPage' style={{color: '#000', fontSize: 15}}>
+                        <strong>Resources</strong>
+                    </a>
+                </div>
             </div>
 
             <br />

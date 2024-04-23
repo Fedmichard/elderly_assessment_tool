@@ -27,7 +27,7 @@ function SignIn() {
             const response = await axios.post('http://localhost:3001/users/login', {...formData})
             .then((res) => {
                 console.log(res.data.status);
-                if (res.data.status == "success") {
+                if (res.data.status === "success") {
                     navigate('/');
                     alert('Successful Login!');
                     window.location.reload();
