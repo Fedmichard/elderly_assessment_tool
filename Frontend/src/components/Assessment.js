@@ -39,6 +39,7 @@ const Asessment = () => {
         }
     }
 
+
     if (cookie === "RegisteredUser") {
         // if is registered user
         return (
@@ -77,7 +78,7 @@ const Asessment = () => {
 
 
                     <div>
-                        <img src={require('../assets/examples.PNG')} style={{ maxHeight: '100%', maxWidth: '100%' }}></img>
+                       {/* image goes here */}
                     </div>
 
 
