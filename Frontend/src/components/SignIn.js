@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
-
+axios.defaults.withCredentials = true;
 
 // Add alert message when email or password is wrong***
 function SignIn() {
@@ -24,11 +24,21 @@ function SignIn() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/users/sign_in', formData);
+            const response = await axios.post('http://localhost:3001/users/login', {...formData})
+            .then((res) => {
+                console.log(res.data.status);
+                if (res.data.status == "success") {
+                    navigate('/');
+                    alert('Successful Login!');
+                    window.location.reload();
+                } else {
+                    alert(res.data.error);
+                }
+            })
+
             console.log('Login response:', response.data);
 
             // If login is success, redirect to account page
-            navigate('/');
             
         } catch (error) {
             console.error('Error during login:', error);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Install dependency
 import axios from 'axios'; // Install dependency
 import '../styles/bootstrap-5.2.3-dist/PhishEld.css';
-
+axios.defaults.withCredentials = true;
 
 function Register() {
     const navigate = useNavigate(); // Hook for navigation
@@ -84,13 +84,19 @@ function Register() {
             console.log(formData)
             const response = await axios.post('http://localhost:3001/users/create_user', {
                 ...formData
-
-            });
+            }).then((res) => {
+                console.log(res.data.status);
+                if (res.data.status == "success") {
+                    navigate('/signIn');
+                    alert('Account Successfully Created!');
+                } else {
+                    alert(res.data.error);
+                }
+            })
 
             console.log('Server response:', response.data);
 
             // If registration is success, redirect to account page
-            navigate('/');
 
         } catch (error) {
             console.error('Error submitting registration:', error);
@@ -137,6 +143,8 @@ function Register() {
                         <p className="text-danger">{confirmPasswordError}</p>
                     </div>
 
+                    <div className='alert alert-danger' role='alert' id='error' style={{display: 'none'}}></div>
+                    <div className='alert alert-success' role='alert' id='success' style={{display: 'none'}}></div>
                     <div className='d-grid mt-2'>
                         <button className='btn btn-success' type='submit'>Register</button>
                     </div>
