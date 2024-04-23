@@ -8,34 +8,52 @@ const Asessment = () => {
     const cookie = document.cookie.split('=')[0]
 
     let [index, setIndex] = useState(0);
-    let [currQuestion, setCurrQuestion] = useState(data[index]);
-    let [answer, setAnswer] = useState(0);
-    let [active, setActive] = useState(0);
+    let [question, setQuestion] = useState(data[index]);
+    let [lock, setLock] = useState(false);
     let [score, setScore] = useState(0);
-    let [total, setTotal] = useState(0);
+
+    let [active, setActive] = useState(0);
 
     const checkAnswer = (e, ans) => {
-        setActive(ans)
-        setAnswer(ans)
+        console.log(ans)
+        if (!lock) {
 
-        if (currQuestion.answer === ans) {
-            console.log(answer, "is correct")
-            setScore(prev => prev + 1)
+            if (question.answer === ans) {
+                setLock(true)
+                setScore((prev) => prev + 1)
+                console.log("Correct!")
+            } else {
+                setLock(true)
+                setScore((prev) => prev)
+                console.log("Incorrect!")
+            }
+            setActive(ans)
             console.log(score)
+
         } else {
-            console.log(answer, "is incorrect")
-            setScore(prev => prev)
+            if (active === 1, 2, 3, 4) {
+                if (active === ans) {
+                    setActive(0)
+                    setLock(false)
+                    console.log("Unselected")
+                } else {
+                    setActive(ans)
+                    setLock(false)
+                    console.log("Unselected")
+                }
+            }
+            
             console.log(score)
         }
     }
 
     const next = () => {
-        if (active === 0) {
-            alert("Please select an option...")
-        } else {
+        console.log("next!")
+        if (lock === true) {
             setIndex(index++)
-            setCurrQuestion(data[index])
-            setAnswer(0)
+            setQuestion(data[index])
+            setActive(0)
+            setLock(false)
         }
     }
 
@@ -86,39 +104,39 @@ const Asessment = () => {
     
                 <div className='row' style={{marginTop: '5vh', backgroundColor: '#E7E7E7', paddingTop: '5vh', paddingBottom: '5vh', width: '1000px', maxWidth: '100%'}}>
                     <div className='col-lg-12'>
-                        <h4 style={{paddingLeft: '1vw'}}>{currQuestion.question}</h4>
-
+                        <h4 style={{paddingLeft: '1vw'}}>{question.question}</h4>
+                        
                         <ul style={{marginTop: '4vh'}}>
     
                             <li style={{listStyleType: 'none', marginBottom: '2vh'}}>
                                 <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 1 ? `active` : undefined}`}
                                 onClick={e => {checkAnswer(e, 1)}} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left'}} >
-                                    {currQuestion.option1}</button>
+                                    {question.option1}</button>
                             </li>
     
                             <li style={{listStyleType: 'none', marginBottom: '2vh'}}>
                                 <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 2 ? `active` : undefined}`}
                                 onClick={e => {checkAnswer(e, 2)}} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left'}}>
-                                    {currQuestion.option2}</button>
+                                    {question.option2}</button>
                             </li>
     
                             <li style={{listStyleType: 'none', marginBottom: '2vh'}}>
                                 <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 3 ? `active` : undefined}`}
                                 onClick={e => {checkAnswer(e, 3)}} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left'}}>
-                                    {currQuestion.option3}</button>
+                                    {question.option3}</button>
                             </li>
     
                             <li style={{listStyleType: 'none', marginBottom: '2vh'}}>
                                 <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 4 ? `active` : undefined}`}
                                 onClick={e => {checkAnswer(e, 4)}} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left'}}>
-                                    {currQuestion.option4}</button>
+                                    {question.option4}</button>
                             </li>
     
                         </ul>
                         
                     </div>
                     <div className='col-lg-12' style={{ alignItems: 'center'}} align='left'>
-                        <button className='btn btn-info' onClick={e => {next()}} style={{marginRight: '10vw', marginTop: '3vw', width: '20vw', height: '5vw', fontSize: '2vh'}}>Next</button>
+                        <button className='btn btn-info' onClick={next} style={{marginRight: '10vw', marginTop: '3vw', width: '20vw', height: '5vw', fontSize: '2vh'}}>Next</button>
                     </div>
                 </div>
 
