@@ -17,7 +17,7 @@ import AboutPhishingScams from './pages/AboutPhishingScams.js';
 import AboutPhoneScams from './pages/AboutPhoneScams.js';
 import PhishingAssessment from './pages/PhishingAssessment.js';
 import PhoneAssessment from './pages/PhoneScamAssessment.js';
-import ResourcesPage from './pages/ResourcesPage.js';
+
 
 class App extends Component {
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signIn" element={<SignInPage />} />
           <Route path="/account" element={<AccountPage />} />
-          <Route path='/resourcesPage' element={<ResourcesPage />} />
+        
         </Routes>
         <Footer />
       </Router>

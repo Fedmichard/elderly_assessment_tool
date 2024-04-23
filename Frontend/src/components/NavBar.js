@@ -52,9 +52,7 @@ const AccountConfirm = ({isloggedin, name}) => {
             <li className="nav-item">
               <a className="nav-link" href="/phoneAssessment">Phone Scam Assessment</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/resourcesPage">Resources</a>
-            </li>
+         
 
             <li className="nav-item dropdown">
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">

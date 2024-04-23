@@ -180,7 +180,7 @@ const AboutPhishing = () => (
     
         <BannerPhoto />
 
-        <div className='container-fluid' style={{textAlign: 'left', paddingLeft: '17vw', paddingRight: '17vw'}}>
+        <div className='container-fluid' style={{textAlign: 'left', paddingLeft: '17vw', paddingRight: '17vw', fontSize: "20px"}}>
 
             <Header />
             <HowSection />

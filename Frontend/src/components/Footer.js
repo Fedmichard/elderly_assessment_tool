@@ -5,12 +5,6 @@ const Footer = () => (
         <div className='container-fluid'>
             <div className='row'>
 
-                <div className='col'>
-                    <a className='btn ' href='/' style={{color: '#000', fontSize: 30}}>
-                        <strong>Elderly Assessment Tool</strong>
-                    </a>
-                </div>
-
             </div>
 
             <br />
@@ -42,11 +36,6 @@ const Footer = () => (
                     </a>
                 </div>
 
-                <div className='col'>
-                    <a className='btn btn-floating m-1' href='/resourcesPage' style={{color: '#000', fontSize: 15}}>
-                        <strong>Resources</strong>
-                    </a>
-                </div>
             </div>
 
             <br />

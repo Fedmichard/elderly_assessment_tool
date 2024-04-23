@@ -8,13 +8,13 @@ axios.defaults.withCredentials = true;
 function SignIn() {
     const navigate = useNavigate(); // Hook for navigation
 
-    const [formData, setFormData] = useState ({
+    const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
 
     const handleChange = (e) => {
-        setFormData ({
+        setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
@@ -24,22 +24,21 @@ function SignIn() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/users/login', {...formData})
-            .then((res) => {
-                console.log(res.data.status);
-                if (res.data.status === "success") {
-                    navigate('/');
-                    alert('Successful Login!');
-                    window.location.reload();
-                } else {
-                    alert(res.data.error);
-                }
-            })
+            const response = await axios.post('http://localhost:3001/users/login', { ...formData })
+                .then((res) => {
+                    console.log(res.data.status);
+                    if (res.data.status === "success") {
+                        navigate('/');
+                        window.location.reload();
+                    } else {
+                        alert(res.data.error);
+                    }
+                })
 
             console.log('Login response:', response.data);
 
             // If login is success, redirect to account page
-            
+
         } catch (error) {
             console.error('Error during login:', error);
         }
@@ -53,12 +52,12 @@ function SignIn() {
 
                     <div className='mb-2'>
                         <label htmlFor="email">Email</label>
-                        <input type='email' name='email' value={formData.email} onChange={handleChange} placeholder='Enter Email' className='form-control'/>
+                        <input type='email' name='email' value={formData.email} onChange={handleChange} placeholder='Enter Email' className='form-control' />
                     </div>
 
                     <div className='mb-2'>
                         <label htmlFor="password">Password</label>
-                        <input type='password' name='password' value={formData.password} onChange={handleChange} placeholder='Enter Password' className='form-control'/>
+                        <input type='password' name='password' value={formData.password} onChange={handleChange} placeholder='Enter Password' className='form-control' />
                     </div>
 
                     <div className='d-grid'>
