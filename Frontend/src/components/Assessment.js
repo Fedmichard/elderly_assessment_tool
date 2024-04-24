@@ -7,41 +7,66 @@ import { data } from '../assets/data';
 const Asessment = () => {
     const cookie = document.cookie.split('=')[0]
 
-    let [index, setIndex] = useState(0);
-    let [currQuestion, setCurrQuestion] = useState(data[index]);
-    let [answer, setAnswer] = useState(0);
-    let [active, setActive] = useState(0);
-    let [score, setScore] = useState(0);
-    let [total, setTotal] = useState(0);
+    let [index, setIndex] = useState(0)
+    let [question, setQuestion] = useState(data[0])
+    let [score, setScore] = useState(0)
+    let [result, setResult] = useState(false)
+    let message = "Exam complete! If you scored well you may move onto the next session with no problems, otherwise feel free to retake the exam!";
 
     const checkAnswer = (e, ans) => {
-        setActive(ans)
-        setAnswer(ans)
-
-        if (currQuestion.answer === ans) {
-            console.log(answer, "is correct")
+        if (question.answer == ans) {
             setScore(prev => prev + 1)
-            console.log(score)
         } else {
-            console.log(answer, "is incorrect")
             setScore(prev => prev)
-            console.log(score)
         }
-    }
 
-    const next = () => {
-        if (active === 0) {
-            alert("Please select an option...")
-        } else {
-            setIndex(index++)
-            setCurrQuestion(data[index])
-            setAnswer(0)
+        if (index === data.length - 1) {
+            setResult(true);
+            return
         }
+
+        setIndex(index + 1)
+        setQuestion(data[index])
     }
 
 
     if (cookie === "RegisteredUser") {
         // if is registered user
+
+        const user = jwtDecode(document.cookie)
+        const userId = user.id
+
+        const storeRes = async () => {
+            try {
+                const response = await axios.post('http://localhost:3001/users/updateTestsOne', { userId, score })
+                    .then((res) => {
+                        console.log(res.data.status);
+                        if (res.data.status == "success") {
+                        } else {
+                            alert(res.data.error);
+                        }
+                    })
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        }
+
+        const getTests = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/users/getTestsOne', { userId })
+                    .then((res) => {
+                        console.log(res.data.status)
+                        if (res.data.status == "success") {
+                            return res.data
+                        } else {
+                            alert(res.data)
+                        }
+                    })
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
         return (
             <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize: "20px" }}>
 
@@ -77,107 +102,8 @@ const Asessment = () => {
                 <div className='row' style={{ marginTop: '10vh', height: '100%', width: '100%' }}>
 
 
-                    <div>
-                       {/* image goes here */}
-                    </div>
-
-
-                </div>
-
-
-                <div className='row' style={{ marginTop: '5vh', backgroundColor: '#E7E7E7', paddingTop: '5vh', paddingBottom: '5vh', width: '100%', maxWidth: '100%' }}>
-                    <div className='col-lg-12'>
-                        <h4 style={{ paddingLeft: '1vw' }}>{currQuestion.question}</h4>
-
-                        <ul style={{ marginTop: '4vh' }} >
-
-                            <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
-                                <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 1 ? `active` : undefined}`}
-                                    onClick={e => { checkAnswer(e, 1) }} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left' , textWrap: 'pretty' }} >
-                                    {currQuestion.option1}</button>
-                            </li>
-
-                            <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
-                                <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 2 ? `active` : undefined}`}
-                                    onClick={e => { checkAnswer(e, 2) }} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left', textWrap: 'pretty'  }}>
-                                    {currQuestion.option2}</button>
-                            </li>
-
-                            <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
-                                <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 3 ? `active` : undefined}`}
-                                    onClick={e => { checkAnswer(e, 3) }} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left', textWrap: 'pretty' }}>
-                                    {currQuestion.option3}</button>
-                            </li>
-
-                            <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
-                                <button type="button" className={`btn btn-secondary btn-outline-dark p-3 ${active === 4 ? `active` : undefined}`}
-                                    onClick={e => { checkAnswer(e, 4) }} style={{ marginRight: '1vw', width: '77vw', textAlign: 'left', textWrap: 'pretty'  }}>
-                                    {currQuestion.option4}</button>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div className='col-lg-12' style={{ alignItems: 'center' }} align='left'>
-                        <button className='btn btn-info' onClick={e => { next() }} style={{ marginRight: '10vw', marginTop: '3vw', width: '20vw', height: '5vw', fontSize: '2vh' }}>Next</button>
-                    </div>
-                </div>
-
-
-                <div className='row' style={{ marginTop: '5vh', backgroundColor: '#E7E7E7', width: '1000px', maxWidth: '100%' }}>
-
-                    <div className='col-lg-6 col-md-6 col-sm-6'>
-                        <h2 style={{ paddingLeft: '1vw', paddingTop: '0', paddingBottom: '0' }}>Previous test results:</h2>
-                    </div>
-
-                    <div className='col-lg-6 col-md-6 col-sm-6' align='right'>
-                        <button className='btn btn-info' style={{ width: '10vw', height: '5vw' }}></button>
-                    </div>
-                </div>
-
-
-            </div>
-        );
-    } else {
-
-        // If not a registered user
-        return (
-            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize: "20px" }}>
-
-
-                <div className='row' style={{ marginTop: '10vh' }}>
-
-
-                    <div className='col'>
-
-                        <h1><strong>Phishing Assessment</strong></h1>
-
-                    </div>
-
-                    <div className='col'>
-
-                        <p style={{ paddingLeft: 0 }}>
-                            <strong>Instructions:</strong> Read each question carefully and select the best answer.
-                            Choose the response that you believe is most likely to indicate a phishing attempt.
-                        </p>
-
-                        <ul style={{ paddingLeft: '1em' }}>
-                            <li>Analyze the image</li>
-                            <li>Check for suspicious activity</li>
-                            <li>Answer to the best of your ability</li>
-                        </ul>
-
-                    </div>
-
-
-                </div>
-
-
-                <div className='row' style={{ marginTop: '10vh', height: '100%', width: '100%' }}>
-
-
-                    <div>
-                        <img src={require('../assets/examples.PNG')} style={{ maxHeight: '100%', maxWidth: '100%' }}></img>
+                    <div className='border' style={{ padding: '20px', maxHeight: '80vh' }}>
+                        <img src={require(`../assets/PhoneScams/` + data[index].picture)} style={{ height: '100%', maxHeight: '80vh', maxWidth: '100%' }}></img>
                     </div>
 
 
@@ -185,29 +111,156 @@ const Asessment = () => {
 
 
                 <div className='row' style={{ marginTop: '5vh', backgroundColor: '#E7E7E7', paddingTop: '5vh', paddingBottom: '5vh', width: '1000px', maxWidth: '100%' }}>
-                    <div className='col-lg-12'>
-                        <h4 style={{ paddingLeft: '1vw' }}>Is the above image safe or a phishing scam?</h4>
-                        <ul style={{ marginTop: '4vh' }}>
+                    {result ? <>
+                        <div className='col'>
+                            <div className='row'>
+                                <h4 style={{ paddingLeft: '5vh' }}> Result: {Math.round((score / 12) * 100) * 100 / 100} % </h4>
+                                <h4> , {score} / 12 </h4>
+                            </div>
+                            <div className='row'>
+                                <h6 style={{ paddingLeft: '5vh', paddingRight: '5vh' }}> {message} </h6>
+                            </div>
+                        </div>
+                        <br />
+                    </> : <>
 
-                            <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
-                                <button type="button" className="btn btn-secondary btn-outline-dark p-3 rounded-circle btn-md" style={{ marginRight: '1vw' }}></button>
-                                Phishing Scam
-                            </li>
+                        <div className='col-lg-12'>
+                            <h4 style={{ paddingLeft: '1vw' }}>{question.question}</h4>
 
-                            <li style={{ listStyleType: 'none' }}>
-                                <button type="button" className="btn btn-secondary btn-outline-dark p-3 rounded-circle btn-md" style={{ marginRight: '1vw' }}></button>
-                                Safe
-                            </li>
+                            <ul style={{ marginTop: '4vh' }}>
 
-                        </ul>
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 1) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
+                                        {question.option1}</button>
+                                </li>
 
-                    </div>
-                    <div className='col-lg-12' style={{ alignItems: 'center' }}>
-                        <button className='btn btn-info' style={{ marginRight: '10vw', marginTop: '5vw', width: '20vw', height: '5vw', fontSize: '2vh' }}>Next</button>
-                    </div>
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 2) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option2}</button>
+                                </li>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 3) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option3}</button>
+                                </li>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 4) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option4}</button>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </>}
+
 
                 </div>
 
+            </div>
+        );
+    } else {
+
+        // If not a registered user
+        return (
+
+            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize: "20px",textAlign:'center' }}>
+
+
+                <div className='row' style={{ marginTop: '10vh' }}>
+
+
+                    <div className='col'>
+
+                        <h1><strong>Phishing Assessment</strong></h1>
+
+                    </div>
+
+                    <div className='col'>
+
+                        <p style={{ paddingLeft: 0 }}>
+                            <strong>Instructions:</strong> Read each question carefully and select the best answer.
+                            Choose the response that you believe is most likely to indicate a phishing attempt.
+                        </p>
+
+                        <ul style={{ paddingLeft: '1em' }}>
+                            <li>Analyze the image</li>
+                            <li>Check for suspicious activity</li>
+                            <li>Answer to the best of your ability</li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+
+                <div className='row' style={{ marginTop: '10vh', height: '100%', width: '100%' }}>
+
+
+                    <div className='border' style={{ padding: '20px', maxHeight: '80vh' }}>
+                        <img src={require(`../assets/PhoneScams/` + data[index].picture)} style={{ height: '100%', maxHeight: '80vh', maxWidth: '100%' }}></img>
+                    </div>
+
+
+                </div>
+
+
+                <div className='row' style={{ marginTop: '5vh', backgroundColor: '#E7E7E7', paddingTop: '5vh', paddingBottom: '5vh', width: '1000px', maxWidth: '100%' }}>
+                    {result ? <>
+                        <div className='col'>
+                            <div className='row'>
+                                <h4 style={{ paddingLeft: '5vh' }}> Result: {Math.round((score / 12) * 100) * 100 / 100} % </h4>
+                                <h4> , {score} / 12 </h4>
+                            </div>
+                            <div className='row'>
+                                <h6 style={{ paddingLeft: '5vh', paddingRight: '5vh' }}> {message} </h6>
+                            </div>
+                        </div>
+                        <br />
+                    </> : <>
+
+                        <div className='col-lg-12'>
+                            <h4 style={{ paddingLeft: '1vw' }}>{question.question}</h4>
+
+                            <ul style={{ marginTop: '4vh' }}>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 1) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
+                                        {question.option1}</button>
+                                </li>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 2) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option2}</button>
+                                </li>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 3) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option3}</button>
+                                </li>
+
+                                <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
+                                    <button className={`btn btn-secondary btn-outline-dark p-3`}
+                                        onClick={e => { checkAnswer(e, 4) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        {question.option4}</button>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </>}
+
+                </div>
 
             </div>
         );

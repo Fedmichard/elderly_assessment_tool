@@ -170,7 +170,7 @@ const Asessment = () => {
 
         // If not a registered user
         return (
-            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh' }}>
+            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize:'20px' }}>
 
 
                 <div className='row' style={{ marginTop: '10vh' }}>
@@ -261,9 +261,7 @@ const Asessment = () => {
 
                     </>}
 
-
                 </div>
-
 
             </div>
         );
