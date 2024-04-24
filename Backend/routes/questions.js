@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // creates question
-router.post('/create_question', function (req,res){
+router.post('/create_question', function (req, res) {
     let form = req.body;
     let cmd = 'INSERT INTO questions Set ?'
     conn.query(cmd, form, err => {
