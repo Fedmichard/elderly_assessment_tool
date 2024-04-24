@@ -1,8 +1,8 @@
 import React from 'react';
-import Asessment from '../components/Assessment';
+import Asessment2 from '../components/Assessment2';
 
 const PhishingAsessment = () => (
-    <Asessment />
+    <Asessment2 />
 );
 
 export default PhishingAsessment;

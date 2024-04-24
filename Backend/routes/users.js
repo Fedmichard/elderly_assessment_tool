@@ -22,8 +22,6 @@ router.post('/login', async (req, res) => {
                     secure: true,
                     path: '/',
                 }
-
-                console.log(cookieOptions.expires)
                 
                 res.cookie("RegisteredUser", token, cookieOptions)
                 return res.json({status: "success", success: "User has been logged in"})
@@ -65,38 +63,43 @@ router.post('/logout', (req, res) => {
     return res.json({status: "success", success: "User has been logged out"})
 })
 
-// lists all users
-router.get('/list_users', (req, res) => {
-    var cmd = 'Select idusers, username FROM users';
-    conn.query(cmd, (err, data) => {
-        if (err) throw err;
-        res.writeHead(200, { "Content-Type": "json" });
-        res.write(JSON.stringify(data));
-        res.end();
-    });
-});
+router.post('/updateTestsOne', (req, res) => {
+    let form = req.body
+    let values = [form.userId, form.score]
+    let cmd = 'INSERT INTO `testsTaken` (`userid`, `score`) VALUES (?)';
+    if (!form.userId || !form.score) {
+        return res.json({ status: "error", error: "No score or user id attached"})
+    } else {
+        conn.query(cmd, [values], error => {
+            if (error) throw error;
+            return res.json({status: "success", success: "Test score saved."})
+        })
+    }
+})
 
-// deletes user
-router.delete('/delete_user/:id', (req, res) => {
-    let id = req.params.id;
-    let cmd = 'DELETE FROM users WHERE idusers= ?';
+router.post('/updateTestsTwo', (req, res) => {
+    let form = req.body
+    let values = [form.userId, form.score]
+    let cmd = 'INSERT INTO `testsTakenTwo` (`userid`, `score`) VALUES (?)';
+    if (!form.userId || !form.score) {
+        return res.json({ status: "error", error: "No score or user id attached"})
+    } else {
+        conn.query(cmd, [values], error => {
+            if (error) throw error;
+            return res.json({status: "success", success: "Test score saved."})
+        })
+    }
+})
 
-    conn.query(cmd, id, (err, result) => {
-        if (err) throw err;
-        res.end();
-    });
-});
-
-// updates user
-router.put('/update_user/:id', (req, res) => {
-    let id = req.params.id;
-    let form = req.body;
-    let cmd = 'UPDATE users SET ? WHERE iduser=?';
-
-    conn.query(cmd, [form, id], (err, result) => {
-        if (err) throw err;
-        res.end();
-    });
-});
+router.get('/getTestsOne', (req, res) => {
+    let form = req.body
+    let cmd = 'SELECT * FROM `testsTaken` WHERE userid = ?';
+    let values = [form.userId]
+    conn.query(cmd, [values], (error, result) => {
+        if (error) throw error
+        console.log(result)
+        return res.json({status: "success", success: result})
+    })
+})
 
 module.exports = router;
