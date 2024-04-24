@@ -107,7 +107,7 @@ function Register() {
 
     return (
         <div className="signup template d-flex justify-content-center align-items-center bg-color">
-            <div className='form_container_register p-5 rounded bg-white'>
+            <div className='p-5 rounded bg-white'>
                 <div className='text-center fw-bolder'>
                     <h1><strong>Join our Elderly Assessment Tool</strong></h1>
                 </div>

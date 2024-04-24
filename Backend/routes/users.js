@@ -7,12 +7,14 @@ const jwt = require('jsonwebtoken');
 router.post('/login', async (req, res) => {
     let form = req.body
     if (!form.email || !form.password) {
-        return res.json({status: "error", error: "Please enter your email and password"})
+        return res.json({ status: "error", error: "Please enter your email and password" })
+    } else if (form.email.includes("#") || form.password.includes("#")) {
+        return res.json({ status: "error", error: "Please do not enter #" })
     } else {
         conn.query('SELECT * FROM `users` WHERE email = ?', [form.email], async (err, result) => {
             if (err) throw err;
             if (!result.length || !await bcrypt.compare(form.password, result[0].password)) {
-                return res.json({ status: "error", error: "Incorrect Email or Password"})
+                return res.json({ status: "error", error: "Incorrect Email or Password" })
             } else {
                 const token = jwt.sign({ id: result[0].idusers, firstname: result[0].first_name }, process.env.JWT_SECRET, {
                 })
@@ -22,9 +24,9 @@ router.post('/login', async (req, res) => {
                     secure: true,
                     path: '/',
                 }
-                
+
                 res.cookie("RegisteredUser", token, cookieOptions)
-                return res.json({status: "success", success: "User has been logged in"})
+                return res.json({ status: "success", success: "User has been logged in" })
             }
         })
     }
@@ -34,13 +36,15 @@ router.post('/login', async (req, res) => {
 router.post('/create_user', async (req, res) => {
     let form = req.body
     if (!form.email || !form.password) {
-        return res.json({ status: "error", error: "Please enter email and password"})
+        return res.json({ status: "error", error: "Please enter email and password" })
+    } else if (form.email.includes("#") || form.password.includes("#") || form.first_name.includes("#") || form.last_name.includes("#") || form.confirm_password.includes("#")) {
+        return res.json({ status: "error", error: "Please do not enter #" })
     } else {
 
         conn.query('SELECT email FROM `users` WHERE email = ?', [form.email], async (err, result) => {
             if (err) throw err;
             if (result[0]) {
-                return res.json({ status: "error", error: "Email already exists"})
+                return res.json({ status: "error", error: "Email already exists" })
             } else {
                 bcrypt.hash(form.password, 8, (errr, hash) => {
                     if (errr) throw errr;
@@ -49,7 +53,7 @@ router.post('/create_user', async (req, res) => {
 
                     conn.query(cmd, [values], error => {
                         if (error) throw error;
-                        return res.json({status: "success", success: "User has been registered"})
+                        return res.json({ status: "success", success: "User has been registered" })
                     });
                 })
             }
@@ -60,7 +64,7 @@ router.post('/create_user', async (req, res) => {
 
 router.post('/logout', (req, res) => {
     res.clearCookie("RegisteredUser")
-    return res.json({status: "success", success: "User has been logged out"})
+    return res.json({ status: "success", success: "User has been logged out" })
 })
 
 router.post('/updateTestsOne', (req, res) => {
@@ -68,11 +72,11 @@ router.post('/updateTestsOne', (req, res) => {
     let values = [form.userId, form.score]
     let cmd = 'INSERT INTO `testsTaken` (`userid`, `score`) VALUES (?)';
     if (!form.userId || !form.score) {
-        return res.json({ status: "error", error: "No score or user id attached"})
+        return res.json({ status: "error", error: "No score or user id attached" })
     } else {
         conn.query(cmd, [values], error => {
             if (error) throw error;
-            return res.json({status: "success", success: "Test score saved."})
+            return res.json({ status: "success", success: "Test score saved." })
         })
     }
 })
@@ -82,11 +86,11 @@ router.post('/updateTestsTwo', (req, res) => {
     let values = [form.userId, form.score]
     let cmd = 'INSERT INTO `testsTakenTwo` (`userid`, `score`) VALUES (?)';
     if (!form.userId || !form.score) {
-        return res.json({ status: "error", error: "No score or user id attached"})
+        return res.json({ status: "error", error: "No score or user id attached" })
     } else {
         conn.query(cmd, [values], error => {
             if (error) throw error;
-            return res.json({status: "success", success: "Test score saved."})
+            return res.json({ status: "success", success: "Test score saved." })
         })
     }
 })
@@ -98,7 +102,7 @@ router.get('/getTestsOne', (req, res) => {
     conn.query(cmd, [values], (error, result) => {
         if (error) throw error
         console.log(result)
-        return res.json({status: "success", success: result})
+        return res.json({ status: "success", success: result })
     })
 })
 

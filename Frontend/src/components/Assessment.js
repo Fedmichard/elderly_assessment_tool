@@ -131,25 +131,25 @@ const Asessment = () => {
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 1) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
+                                        onClick={e => { checkAnswer(e, 1) }} style={{ textWrap: "pretty", marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
                                         {question.option1}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 2) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 2) }} style={{ textWrap: "pretty", marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option2}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 3) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 3) }} style={{ textWrap: "pretty", marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option3}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 4) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 4) }} style={{ textWrap: "pretty", marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option4}</button>
                                 </li>
 
@@ -169,7 +169,7 @@ const Asessment = () => {
         // If not a registered user
         return (
 
-            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize: "20px",textAlign:'center' }}>
+            <div style={{ marginLeft: '5vw', marginRight: '5vw', marginBottom: '25vh', fontSize: "20px" }}>
 
 
                 <div className='row' style={{ marginTop: '10vh' }}>
@@ -232,25 +232,25 @@ const Asessment = () => {
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 1) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
+                                        onClick={e => { checkAnswer(e, 1) }} style={{ textWrap: 'pretty', marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }} >
                                         {question.option1}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 2) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 2) }} style={{ textWrap: 'pretty', marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option2}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 3) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 3) }} style={{ textWrap: 'pretty', marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option3}</button>
                                 </li>
 
                                 <li style={{ listStyleType: 'none', marginBottom: '2vh' }}>
                                     <button className={`btn btn-secondary btn-outline-dark p-3`}
-                                        onClick={e => { checkAnswer(e, 4) }} style={{ marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', overflow: 'hidden', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
+                                        onClick={e => { checkAnswer(e, 4) }} style={{ textWrap: 'pretty', marginRight: '1vw', maxWidth: '45vw', width: '100%', textAlign: 'left', whiteSpace: 'nowrap', display: 'block', textOverflow: 'ellipsis' }}>
                                         {question.option4}</button>
                                 </li>
 
