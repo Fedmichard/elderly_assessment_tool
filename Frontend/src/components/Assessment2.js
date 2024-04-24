@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { jwtDecode} from 'jwt-decode'
 import "core-js/stable/atob"
-import { data } from '../assets/data';
+import { data } from '../assets/data2';
 
 const Asessment = () => {
     const cookie = document.cookie.split('=')[0]
@@ -35,7 +35,7 @@ const Asessment = () => {
  
         const storeRes = async () => {
             try {
-                const response = await axios.post('http://localhost:3001/users/updateTestsOne', { userId, score })
+                const response = await axios.post('http://localhost:3001/users/updateTestsTwo', { userId, score })
                 .then((res) => {
                     console.log(res.data.status);
                     if (res.data.status == "success") {
@@ -50,7 +50,7 @@ const Asessment = () => {
 
         const getTests = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/users/getTestsOne', {userId})
+                const response = await axios.get('http://localhost:3001/users/getTestsTwo', {userId})
                 .then((res) => {
                     console.log(res.data.status)
                     if (res.data.status == "success") {
@@ -77,7 +77,7 @@ const Asessment = () => {
     
                     <div className='col'>
     
-                        <h1><strong>Phone Scam Assessment</strong></h1>
+                        <h1><strong>Phishing Assessment</strong></h1>
     
                     </div>
     
@@ -104,7 +104,7 @@ const Asessment = () => {
     
     
                     <div className='border' style={{padding: '20px', maxHeight: '80vh'}}>
-                        <img src={require(`../assets/PhoneScams/` + data[index].picture)} style={{height: '100%', maxHeight: '80vh', maxWidth: '100%'}}></img>
+                        <img src={require(`../assets/PhishingScams/` + data[index].picture)} style={{height: '100%', maxHeight: '80vh', maxWidth: '100%'}}></img>
                     </div>
     
     
@@ -178,7 +178,7 @@ const Asessment = () => {
     
                     <div className='col'>
     
-                        <h1><strong>Phone Scam Assessment</strong></h1>
+                        <h1><strong>Phishing Assessment</strong></h1>
     
                     </div>
     
@@ -205,7 +205,7 @@ const Asessment = () => {
     
     
                     <div className='border' style={{padding: '20px', maxHeight: '80vh'}}>
-                        <img src={require(`../assets/PhoneScams/` + data[index].picture)} style={{height: '100%', maxHeight: '50vh', maxWidth: '100%'}}></img>
+                        <img src={require(`../assets/PhishingScams/` + data[index].picture)} style={{height: '100%', maxHeight: '50vh', maxWidth: '100%'}}></img>
                     </div>
     
     

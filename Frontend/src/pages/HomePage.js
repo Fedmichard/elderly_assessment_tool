@@ -25,7 +25,7 @@ const FeatureOptions = ({title, subtitle, buttonText, direction}) => (
 
 const Feature = ({ feature, title, subtitle, img, featureTitle1, featureTitle2, featureSub1, featureSub2, featureButton1, featureButton2, d1, d2}) => (
 
-    <div className='container-fluid' style={{marginBottom: '25vh'}}>
+    <div id="features" className='container-fluid' style={{marginBottom: '25vh'}}>
         <div className='row'>
 
 
@@ -87,9 +87,11 @@ const Header = () => (
                 </div>
 
                 <div className='row '>
-                    <Link to='/about'>
-                        <button className='btn btn-dark rounded-0 mt-4' style={{fontSize: 25}}>Learn more</button>
-                    </Link>
+                    <a href='#features'>
+                        <button className='btn btn-dark rounded-0 mt-4' style={{fontSize: 25}}>
+                            Learn more
+                        </button>
+                    </a>
                 </div>
 
             </div>
