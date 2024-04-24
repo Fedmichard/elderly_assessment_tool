@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// creates question
+// creates question // idk
 router.post('/create_question', function (req,res){
     let form = req.body;
     let cmd = 'INSERT INTO questions Set ?'
