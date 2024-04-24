@@ -8,8 +8,10 @@ router.post('/login', async (req, res) => {
     let form = req.body
     if (!form.email || !form.password) {
         return res.json({ status: "error", error: "Please enter your email and password" })
-    } else if (form.email.includes("#") || form.password.includes("#")) {
-        return res.json({ status: "error", error: "Please do not enter #" })
+    } else if (form.email.includes("#") || form.password.includes("#") ||
+        form.email.includes(";") || form.password.includes(";") ||
+        form.email.includes("=") || form.password.includes("=")) {
+        return res.json({ status: "error", error: "Please do not enter #, ;, or =" })
     } else {
         conn.query('SELECT * FROM `users` WHERE email = ?', [form.email], async (err, result) => {
             if (err) throw err;
@@ -37,8 +39,12 @@ router.post('/create_user', async (req, res) => {
     let form = req.body
     if (!form.email || !form.password) {
         return res.json({ status: "error", error: "Please enter email and password" })
-    } else if (form.email.includes("#") || form.password.includes("#") || form.first_name.includes("#") || form.last_name.includes("#") || form.confirm_password.includes("#")) {
-        return res.json({ status: "error", error: "Please do not enter #" })
+    } else if (form.email.includes("#") || form.password.includes("#") || form.first_name.includes("#") ||
+        form.last_name.includes("#") || form.confirm_password.includes("#") || form.email.includes(";") ||
+        form.password.includes(";") || form.first_name.includes(";") || form.last_name.includes(";") ||
+        form.confirm_password.includes(";") || form.email.includes("=") || form.password.includes("=") ||
+        form.first_name.includes("=") || form.last_name.includes("=") || form.confirm_password.includes("=")) {
+        return res.json({ status: "error", error: "Please do not enter #, ;, or =" })
     } else {
 
         conn.query('SELECT email FROM `users` WHERE email = ?', [form.email], async (err, result) => {
