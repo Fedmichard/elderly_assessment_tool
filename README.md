@@ -9,9 +9,10 @@ Our app will be structured around the actual assessment and information providin
 
 ## Languages & Tools
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-<img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" />
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
+<img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactbootstrap/reactbootstrap-original.svg" />
 <img align="left" alt="java" width="50px" style="padding-right:30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
 <br />
@@ -35,25 +36,33 @@ The current UI/UX design was created within Figma and below are some pictures of
 
 
 ## Back-end
-Our backend has been established already in MySQL and is ready for communication with our front-end, below is a rudimentary schema created by our back-end for our database:
+Our backend has been established already in MySQL and is ready for communication with our front-end via requests made by Axios. Our database itself communicates only with the back-end using express, below is a rudimentary schema created by our back-end for our database:
 ![Screenshot_2024-03-15_013912](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/df75f48e-c4ac-474c-815a-8cba396adfcf)
 
 
 ## Security
--- To be completed
+* Password hashing for safe and secure storage of our user information using Bcrypt
+* SQL Injection Prevention during the log-in and sign-up process
+* JWT Cookie generation for successful user authorization
+* Tips for creating a safe environment for their digital information
+* The saving of the assessments and user information
+* Communication via axios and express
 
 
 ## Features
 * Provide an assessment tool which will give a detailed report of how the user responds to Phishing attempts, how the user responds to non-Phishing attempts, how the user interacts with the visuals of a site, and things missed or not missed in the examples
-* Provide a well thought out tutorial with examples and customization
 * Provide resources from trusted outlets to enhance the learning of the user such as common threats and how to mitigate them
 * Tips for creating a safe environment for their digital information
-* We don’t want to be too strict on our roles and titles, since everyone here are software engineers we want everyone to be involved in the development of this app as much as possible
-* The saving of the assessments and user information
+* The saving of the assessments and user information securly
 
 
 ## How to use:
--- To be completed
+* We recommend first navigating to the "About Phishing Scams" section of our site
+* Read the information from top to bottom and take notes if necessary
+* Move on to the following assessment for Phishing Scams
+* Retake the test if you score lower than expected
+* Once your score is adequate, move on to the next section and repeat!
+* Consider creating an account to store your score results!
 
 
 ## Contributors
