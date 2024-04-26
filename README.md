@@ -22,13 +22,16 @@ Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on ma
 The current UI/UX design was created within Figma and below are some pictures of our front-end implementing those designs:
 
 ### Home Page
-![Home](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/bdaec0ef-f80d-42c7-bdcd-3a6dc80bf80c)
+![Home](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/cc6a04e1-5d6d-4496-adab-0eb90636620d)
+
 
 ### About Page
-![Read](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/7ce37685-bca7-404b-ae79-2d4fc0e09620)
+![Read](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/1e403dd9-9f8a-42cd-adf4-74079221bfca)
+
 
 ### Assessment Page
-![Assess](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/884a7b86-d290-4da1-ab90-73b5e721005c)
+![Assess](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/ee31948b-3c2f-4f27-930b-2aef78b619d3)
+
 
 
 ## Back-end
