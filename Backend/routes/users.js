@@ -39,12 +39,6 @@ router.post('/create_user', async (req, res) => {
     let form = req.body
     if (!form.email || !form.password) {
         return res.json({ status: "error", error: "Please enter email and password" })
-    } else if (form.email.includes("#") || form.password.includes("#") || form.first_name.includes("#") ||
-        form.last_name.includes("#") || form.confirm_password.includes("#") || form.email.includes(";") ||
-        form.password.includes(";") || form.first_name.includes(";") || form.last_name.includes(";") ||
-        form.confirm_password.includes(";") || form.email.includes("=") || form.password.includes("=") ||
-        form.first_name.includes("=") || form.last_name.includes("=") || form.confirm_password.includes("=")) {
-        return res.json({ status: "error", error: "Please do not enter #, ;, or =" })
     } else {
 
         conn.query('SELECT email FROM `users` WHERE email = ?', [form.email], async (err, result) => {
@@ -56,7 +50,6 @@ router.post('/create_user', async (req, res) => {
                     if (errr) throw errr;
                     let values = [hash, form.first_name, form.last_name, form.email]
                     let cmd = 'INSERT INTO `users` (`password`, `first_name`, `last_name`, `email`) VALUES (?)'
-
                     conn.query(cmd, [values], error => {
                         if (error) throw error;
                         return res.json({ status: "success", success: "User has been registered" })

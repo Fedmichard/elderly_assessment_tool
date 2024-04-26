@@ -81,7 +81,6 @@ function Register() {
         e.preventDefault();
 
         try {
-            console.log(formData)
             const response = await axios.post('http://localhost:3001/users/create_user', {
                 ...formData
             }).then((res) => {
