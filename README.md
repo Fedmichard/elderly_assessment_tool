@@ -4,7 +4,7 @@ Assessment tools for elderly population. Our app will be specifically designed t
 Badges: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Fedmichard/elderly_assessment_tool/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Fedmichard/elderly_assessment_tool)
 
 ## About
-Our app will be structured around the actual assessment and information providing aspects. Our assessment will show things like examples of safe vs. unsafe websites/emails/messages and then provide a series of questions which will ask the user if the image above looks misleading or dangerous. Of all users, elderly folk make up such a large majority of the individuals who are affected by phishing and phone scams. These happen so often and most of the time they are completely oblivious to these attacks taking place, our website aims to minimize the amount they are affected.
+Our app will be structured around the actual assessment and information providing aspects. Our assessment will show things like examples of safe vs. unsafe websites/emails/messages and then provide a series of questions which will ask the user if the image above looks misleading or dangerous. Of all users, elderly folk make up such a large majority of the individuals who are affected by phishing and phone scams. These happen so often and most of the time they are completely oblivious to these attacks taking place, our website aims to minimize the amount they are affected. Our project stack currently is: ReactJs, Express, MySQL database, NodeJs, and the Bootstrap library.
 
 
 ## Languages & Tools
@@ -19,8 +19,7 @@ Our app will be structured around the actual assessment and information providin
 .
 
 ## Front-end
-Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on making the app as responsive as possible for future screen sizes, making it compatible for mobile devices.
-The current UI/UX design was created within Figma and below are some pictures of our front-end implementing those designs:
+Designed using ReactJS, Bootstrap, HTML, and CSS. We're constantly working on making the app as responsive as possible for future screen sizes, making it compatible for mobile devices. We also send and receive requests from our back-end using Axios. The current UI/UX design was created within Figma and below are some pictures of our front-end implementing those designs:
 
 ### Home Page
 ![Home](https://github.com/Fedmichard/elderly_assessment_tool/assets/48575985/cc6a04e1-5d6d-4496-adab-0eb90636620d)
